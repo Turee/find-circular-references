@@ -31,7 +31,6 @@
     "commit": "git-cz",
     "semantic-release": "semantic-release",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
-    "precommit": "lint-staged",
     "travis-deploy-once": "travis-deploy-once"
   },
   "lint-staged": {
@@ -115,5 +114,14 @@
     "tslint-config-standard": "^8.0.1",
     "typedoc": "^0.14.1",
     "typescript": "^3.0.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test:prod && npm run build"
+    }
   }
 }
